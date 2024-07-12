@@ -14,8 +14,10 @@ This repository is not intended to replace the original. It is made for Medusa B
 
 Modify the following environment variables for correct execution:
 
+```
 MEDUSA_BACKEND_URL="http://localhost:9000"
 ADMIN_PATH="http://localhost:9000"
+```
 
 ### Previous requirements
 
@@ -31,5 +33,5 @@ npm run dev
 ```
 
 Main Modifications
-The main modification of this project is in the package.json versions, updated and modified manually for correct cohesion.
+The main modification of this project is found in the versions of the package.json dependencies, which have been updated and adjusted manually to ensure correct cohesion and compatibility.
 
