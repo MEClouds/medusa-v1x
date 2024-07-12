@@ -3,7 +3,7 @@
     <img alt="Medusa" src="https://user-images.githubusercontent.com/7554214/153162406-bf8fd16f-aa98-4604-b87b-e13ab4baf604.png" width="100" />
   </a>
 </p>
-# Medusa Backend Custom Version
+## Medusa Backend Custom Version
 
 This repository is not intended to replace the original. It is made for Medusa Backend version 1.20.7 and works on port 7002 by default.
 
