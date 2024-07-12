@@ -4,7 +4,7 @@
   </a>
 </p>
 
-## Medusa Amin UI Custom Version
+## Medusa Admin UI Custom Version
 
 This repository is not intended to replace the original. It is made for Medusa Backend version 1.20.7 and works on port 7002 by default.
 
