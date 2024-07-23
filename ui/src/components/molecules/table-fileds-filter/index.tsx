@@ -6,6 +6,7 @@ import PlusIcon from "../../fundamentals/icons/plus-icon"
 import Button from "../../fundamentals/button"
 import CrossIcon from "../../fundamentals/icons/cross-icon"
 import Checkbox from "../../atoms/checkbox"
+import i18n from "../../../i18n"
 
 /** ****************** TYPES ********************/
 
@@ -44,7 +45,7 @@ type FieldMenuItemProps = {
 function Chip(props: ChipProps) {
   const { remove, short } = props
   return (
-    <div className="text-small text-grey-70 border-gray-70 mr-1 inline-flex h-[32px] shrink-0 items-center gap-1 rounded-lg border px-3 last:mr-2">
+    <div className="text-small text-grey-70 border-gray-70 me-1 inline-flex h-[32px] shrink-0 items-center gap-1 rounded-lg border px-3 last:me-2">
       {short}
       <CrossIcon
         className="text-grey-40 cursor-pointer"
@@ -125,9 +126,8 @@ function FieldsMenu(props: FieldsMenuProps) {
       document.removeEventListener("mousedown", handleClickOutside)
     }
   }, [contentRef])
-
   return (
-    <DropdownMenu.Root open={open}>
+    <DropdownMenu.Root dir={i18n.dir()} open={open}>
       <DropdownMenu.Trigger>
         <Button
           onClick={onTriggerClick}
@@ -180,7 +180,7 @@ function TableFieldsFilters(props: TableFieldsFilterProps) {
 
   return (
     <div className="flex flex-wrap items-center gap-y-2">
-      <span className="text-small mr-2 whitespace-nowrap font-semibold text-gray-500">
+      <span className="text-small me-2 whitespace-nowrap font-semibold text-gray-500">
         Currently editing these fields:
       </span>
 

@@ -29,6 +29,7 @@ import useNotification from "../../../../hooks/use-notification"
 import { getErrorMessage } from "../../../../utils/error-messages"
 import { PriceListStatus } from "../../forms/price-list-details-form"
 import { EditDetailsDrawer } from "./details-drawer"
+import i18n from "../../../../i18n"
 
 type PriceListDetailsSectionProps = {
   priceList: PriceList
@@ -171,7 +172,7 @@ const PriceListDetailsSection = ({
               </Text>
             )}
           </div>
-          <div className="border-ui-border-base flex flex-col gap-y-1 border-l px-4">
+          <div className="border-ui-border-base flex flex-col gap-y-1 border-s px-4">
             <Text size="base" className="text-ui-fg-subtle">
               {t("price-list-details-section-last-edited", "Last edited")}
             </Text>
@@ -179,7 +180,7 @@ const PriceListDetailsSection = ({
               {format(new Date(priceList.updated_at), "EEE d, MMM yyyy")}
             </Text>
           </div>
-          <div className="border-ui-border-base flex flex-col gap-y-1 border-l px-4">
+          <div className="border-ui-border-base flex flex-col gap-y-1 border-s px-4">
             <Text size="base" className="text-ui-fg-subtle">
               {t("price-list-details-section-number-of-prices", "Prices")}
             </Text>
@@ -285,13 +286,12 @@ const PriceListStatusMenu = ({
       }
     )
   }
-
   return (
-    <DropdownMenu>
+    <DropdownMenu dir={i18n.dir()}>
       <DropdownMenu.Trigger asChild disabled={isExpired}>
         <Button
           variant="secondary"
-          className="!text-ui-fg-base flex items-center !gap-x-1.5 pl-2.5 pr-3 capitalize"
+          className="!text-ui-fg-base flex items-center !gap-x-1.5 pe-3 ps-2.5 capitalize"
         >
           {statusDot}
           {statusText}
@@ -328,7 +328,7 @@ const PriceListMenu = ({ onDelete, onOpenDrawer }: PriceListMenuProps) => {
   const { t } = useTranslation()
 
   return (
-    <DropdownMenu>
+    <DropdownMenu dir={i18n.dir()}>
       <DropdownMenu.Trigger asChild>
         <IconButton>
           <EllipsisHorizontal />
@@ -337,14 +337,14 @@ const PriceListMenu = ({ onDelete, onOpenDrawer }: PriceListMenuProps) => {
       <DropdownMenu.Content align="end" side="bottom">
         <DropdownMenu.Item onClick={onOpenDrawer}>
           <PencilSquare className="text-ui-fg-subtle" />
-          <span className="ml-2">
+          <span className="ms-2">
             {t("price-list-details-menu-item-edit", "Edit details")}
           </span>
         </DropdownMenu.Item>
         <DropdownMenu.Separator />
         <DropdownMenu.Item onClick={onDelete}>
           <Trash className="text-ui-fg-subtle" />
-          <span className="ml-2">
+          <span className="ms-2">
             {t("price-list-details-menu-item-delete", "Delete")}
           </span>
         </DropdownMenu.Item>

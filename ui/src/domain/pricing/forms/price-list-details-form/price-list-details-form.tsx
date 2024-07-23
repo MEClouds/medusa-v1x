@@ -33,6 +33,7 @@ import { FilterMenu } from "../../../../components/molecules/filter-menu"
 import { useDebounce } from "../../../../hooks/use-debounce"
 import { type NestedForm } from "../../../../utils/nested-form"
 import { PriceListDetailsSchema } from "./types"
+import i18n from "../../../../i18n"
 
 interface PriceListDetailsFormProps {
   form: NestedForm<PriceListDetailsSchema>
@@ -85,6 +86,7 @@ const PriceListType = ({ form, layout }: PriceListDetailsFormProps) => {
             <Form.Item>
               <Form.Control>
                 <RadioGroup
+                  dir={i18n.dir()}
                   {...field}
                   onValueChange={field.onChange}
                   className={clx("grid gap-4", {
@@ -442,12 +444,12 @@ const useCustomerGroupsColumns = () => {
       }),
       columnHelper.accessor("customers", {
         header: () => (
-          <div className="w-full text-right">
+          <div className="w-full text-end">
             {t("price-list-details-form-customer-groups-members", "Members")}
           </div>
         ),
         cell: (info) => (
-          <div className="w-full text-right">
+          <div className="w-full text-end">
             {info.getValue()?.length || "-"}
           </div>
         ),
@@ -637,7 +639,7 @@ const PriceListCustomerGroups = ({
           <div className="pt-6">
             <Container className="overflow-hidden p-0 ">
               <div
-                className={clx("flex px-8 pt-6 pb-4", {
+                className={clx("flex px-8 pb-4 pt-6", {
                   "items-center justify-between": layout === "focus",
                   "flex-col gap-y-4": layout === "drawer",
                 })}
@@ -705,7 +707,10 @@ const PriceListCustomerGroups = ({
                       >
                         {headerGroup.headers.map((header) => {
                           return (
-                            <Table.HeaderCell key={header.id}>
+                            <Table.HeaderCell
+                              key={header.id}
+                              className="text-start pe-6"
+                            >
                               {flexRender(
                                 header.column.columnDef.header,
                                 header.getContext()
@@ -721,7 +726,7 @@ const PriceListCustomerGroups = ({
                   {table.getRowModel().rows.map((row) => (
                     <Table.Row key={row.id}>
                       {row.getVisibleCells().map((cell) => (
-                        <Table.Cell key={cell.id}>
+                        <Table.Cell key={cell.id} className="text-start pe-6">
                           {flexRender(
                             cell.column.columnDef.cell,
                             cell.getContext()

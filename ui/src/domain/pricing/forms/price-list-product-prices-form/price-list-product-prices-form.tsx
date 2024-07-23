@@ -40,6 +40,7 @@ import {
   type Point,
   type PriceListProductPricesSchema,
 } from "./types"
+import i18n from "../../../../i18n"
 
 type BulkEditorProps = {
   product: Product
@@ -1385,11 +1386,10 @@ const PriceListProductPricesForm = ({
 
     setAnchorRect(styles)
   }, [anchor])
-
   return (
     <div className="h-full">
       <div className="border-ui-border-base flex items-center justify-between border-b px-4 py-3">
-        <DropdownMenu open={open} onOpenChange={setOpen}>
+        <DropdownMenu dir={i18n.dir()} open={open} onOpenChange={setOpen}>
           <DropdownMenu.Trigger asChild>
             <Button variant="secondary" type="button">
               <Adjustments className="text-ui-fg-subtle" />
@@ -1499,8 +1499,8 @@ const PriceListProductPricesForm = ({
             {
               "border-b-0": dragRelativePosition === "above",
               "border-t-0": dragRelativePosition === "below",
-              "border-l-0": dragRelativePosition === "right",
-              "border-r-0": dragRelativePosition === "left",
+              "border-s-0": dragRelativePosition === "right",
+              "border-e-0": dragRelativePosition === "left",
             }
           )}
         />
@@ -1511,8 +1511,8 @@ const PriceListProductPricesForm = ({
           ref={tableRef}
         >
           <thead>
-            <tr className="[&_th]:txt-compact-small-plus text-ui-fg-subtle [&_th]:border-ui-border-base h-10 [&_th:last-of-type]:border-r-0 [&_th]:min-w-[220px] [&_th]:border-b [&_th]:border-r">
-              <th className="max-w-[220px] text-left">
+            <tr className="[&_th]:txt-compact-small-plus text-ui-fg-subtle [&_th]:border-ui-border-base h-10 [&_th:last-of-type]:border-e-0 [&_th]:min-w-[220px] [&_th]:border-b [&_th]:border-e">
+              <th className="max-w-[220px] text-start">
                 <div className="px-4 py-2.5">
                   {t(
                     "price-list-product-prices-form-column-product-label",
@@ -1529,7 +1529,7 @@ const PriceListProductPricesForm = ({
                 }
 
                 return (
-                  <th className="text-left" key={currency.code}>
+                  <th className="text-start" key={currency.code}>
                     <div className="flex items-center justify-between px-4 py-2.5">
                       <span>
                         {t(
@@ -1560,7 +1560,7 @@ const PriceListProductPricesForm = ({
                 }
 
                 return (
-                  <th className="text-left" key={region.id}>
+                  <th className="text-start" key={region.id}>
                     <div className="flex items-center justify-between px-4 py-2.5">
                       <span>
                         {t(
@@ -1586,7 +1586,7 @@ const PriceListProductPricesForm = ({
             </tr>
           </thead>
           <tbody>
-            <tr className="bg-ui-bg-subtle h-10 [&_td:last-of-type]:border-r-0 [&_td]:border-b [&_td]:border-r">
+            <tr className="bg-ui-bg-subtle h-10 [&_td:last-of-type]:border-e-0 [&_td]:border-b [&_td]:border-e">
               <td className="w-[220px] max-w-[220px]">
                 <div className="grid w-[220px] grid-cols-[16px_1fr] gap-x-3 overflow-hidden px-4 py-2.5">
                   <div className="bg-ui-bg-component h-[22px] w-4 rounded-[4px]">
@@ -1611,7 +1611,7 @@ const PriceListProductPricesForm = ({
 
                 return (
                   <td key={currency.code}>
-                    <div className="text-ui-fg-muted px-4 py-2.5 text-right">
+                    <div className="text-ui-fg-muted px-4 py-2.5 text-end">
                       -
                     </div>
                   </td>
@@ -1624,7 +1624,7 @@ const PriceListProductPricesForm = ({
 
                 return (
                   <td key={region.id}>
-                    <div className="text-ui-fg-muted px-4 py-2.5 text-right">
+                    <div className="text-ui-fg-muted px-4 py-2.5 text-end">
                       -
                     </div>
                   </td>
@@ -1635,7 +1635,7 @@ const PriceListProductPricesForm = ({
               return (
                 <tr
                   key={variant.id}
-                  className="[&_td]:border-r-ui-border-base [&_td]:border-b-ui-border-base h-10 [&_td:last-of-type]:border-r-transparent [&_td]:border [&_td]:border-l-transparent [&_td]:border-t-transparent"
+                  className="[&_td]:border-e-ui-border-base [&_td]:border-b-ui-border-base h-10 [&_td:last-of-type]:border-e-transparent [&_td]:border [&_td]:border-s-transparent [&_td]:border-t-transparent"
                 >
                   <td className="max-w-[220px]">
                     <div className="flex w-[220px] items-center gap-x-3 overflow-hidden px-4 py-2.5">
@@ -2132,14 +2132,14 @@ const Cell = React.forwardRef<HTMLInputElement, CellProps>(
             tabIndex={-1}
             placeholder="-"
             className={clx(
-              "h-full flex-1 cursor-default bg-transparent text-right outline-none"
+              "h-full flex-1 cursor-default bg-transparent text-end outline-none"
             )}
           />
         </div>
         {borders.bottom && borders.right && (
           <div
             onMouseDown={onDragToFillStart}
-            className="bg-ui-bg-interactive absolute -bottom-1 -right-1 z-50 h-2 w-2 cursor-crosshair rounded-full"
+            className="bg-ui-bg-interactive absolute -bottom-1 -end-1 z-50 h-2 w-2 cursor-crosshair rounded-full"
           />
         )}
       </td>

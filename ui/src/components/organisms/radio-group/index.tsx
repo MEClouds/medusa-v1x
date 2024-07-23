@@ -3,6 +3,7 @@ import clsx from "clsx"
 import React from "react"
 import Tooltip from "../../atoms/tooltip"
 import LockIcon from "../../fundamentals/icons/lock-icon"
+import i18n from "../../../i18n"
 
 type RadioGroupItemProps = {
   label: string
@@ -35,6 +36,7 @@ const Item = ({
 }: RadioGroupItemProps) => {
   return (
     <label
+      dir={i18n.dir()}
       className={clsx(
         "rounded-rounded border-grey-20 p-base mb-xsmall gap-base relative flex cursor-pointer items-start border",
         { "bg-grey-5 text-grey-40": disabled },
@@ -109,8 +111,9 @@ const SimpleItem: React.FC<RadioGroupSimpleItemProps> = ({
 }) => {
   return (
     <label
+      dir={i18n.dir()}
       className={clsx(
-        "mr-large flex items-center last:mr-0",
+        "me-large flex items-center last:me-0",
         {
           ["pointer-events-none select-none opacity-50"]: rest.disabled,
         },
@@ -133,7 +136,7 @@ const SimpleItem: React.FC<RadioGroupSimpleItemProps> = ({
           )}
         />
       </RadioGroupPrimitive.Item>
-      <div className="ml-small inter-base-regular w-full cursor-pointer">
+      <div className="ms-small inter-base-regular w-full cursor-pointer">
         <span>{label && label}</span>
         <span>{description && description}</span>
       </div>
@@ -144,6 +147,7 @@ const SimpleItem: React.FC<RadioGroupSimpleItemProps> = ({
 const Dot: React.FC<DotProps> = ({ className, ...rest }) => {
   return (
     <label
+      dir={i18n.dir()}
       className={clsx(
         {
           ["pointer-events-none select-none opacity-50"]: rest.disabled,

@@ -8,6 +8,7 @@ import Avatar from "../../atoms/avatar"
 import Button from "../../fundamentals/button"
 import GearIcon from "../../fundamentals/icons/gear-icon"
 import SignOutIcon from "../../fundamentals/icons/log-out-icon"
+import i18n from "../../../i18n"
 
 const UserMenu: React.FC = () => {
   const navigate = useNavigate()
@@ -30,7 +31,7 @@ const UserMenu: React.FC = () => {
   }
   return (
     <div className="h-large w-large">
-      <DropdownMenu.Root>
+      <DropdownMenu.Root dir={i18n.dir()}>
         <DropdownMenu.Trigger asChild disabled={isLoading}>
           <div className="h-full w-full cursor-pointer">
             <Avatar
@@ -43,7 +44,7 @@ const UserMenu: React.FC = () => {
         <DropdownMenu.Content
           sideOffset={12}
           side="bottom"
-          className="ml-large rounded-rounded border-grey-20 bg-grey-0 p-xsmall shadow-dropdown z-30 min-w-[200px] border"
+          className="ms-large rounded-rounded border-grey-20 bg-grey-0 p-xsmall shadow-dropdown z-30 min-w-[200px] border"
         >
           <DropdownMenu.Item className="mb-1 outline-none">
             <Button

@@ -1,13 +1,13 @@
-import { DuplicateReporterPlugin } from "duplicate-dependencies-webpack-plugin";
-import path from "path";
-import openBrowser from "react-dev-utils/openBrowser";
-import { BundleAnalyzerPlugin } from "webpack-bundle-analyzer";
-import { Configuration } from "webpack-dev-server";
-import { getWebpackConfig } from "./src/node/webpack/get-webpack-config";
+import { DuplicateReporterPlugin } from "duplicate-dependencies-webpack-plugin"
+import path from "path"
+import openBrowser from "react-dev-utils/openBrowser"
+import { BundleAnalyzerPlugin } from "webpack-bundle-analyzer"
+import { Configuration } from "webpack-dev-server"
+import { getWebpackConfig } from "./src/node/webpack/get-webpack-config"
 
 const getDevServerConfig = () => {
-  const analyzeBundle = process.env.ANALYZE_BUNDLE;
-  const analyzeDuplicateDependencies = process.env.ANALYZE_DEPS;
+  const analyzeBundle = process.env.ANALYZE_BUNDLE
+  const analyzeDuplicateDependencies = process.env.ANALYZE_DEPS
 
   const devConfig = getWebpackConfig({
     cacheDir: __dirname,
@@ -20,14 +20,14 @@ const getDevServerConfig = () => {
     },
     template: path.resolve(__dirname, "ui", "index.html"),
     publicFolder: path.resolve(__dirname, "ui", "public"),
-  });
+  })
 
   if (analyzeBundle) {
-    devConfig.plugins?.push(new BundleAnalyzerPlugin());
+    devConfig.plugins?.push(new BundleAnalyzerPlugin())
   }
 
   if (analyzeDuplicateDependencies === "true") {
-    devConfig.plugins?.push(new DuplicateReporterPlugin());
+    devConfig.plugins?.push(new DuplicateReporterPlugin())
   }
 
   return {
@@ -46,12 +46,12 @@ const getDevServerConfig = () => {
         },
         open: false,
         onListening: function () {
-          openBrowser(`http://localhost:7002`);
+          openBrowser(`http://localhost:7002`)
         },
         allowedHosts: "auto",
       } as Configuration,
     },
-  };
-};
+  }
+}
 
-module.exports = getDevServerConfig();
+module.exports = getDevServerConfig()

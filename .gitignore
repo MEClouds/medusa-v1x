@@ -3,5 +3,5 @@
 .vercel
 /ui/preview
 /ui/src/extensions
-
+.env
 /node_modules

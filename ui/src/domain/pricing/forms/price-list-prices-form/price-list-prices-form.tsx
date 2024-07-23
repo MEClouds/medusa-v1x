@@ -125,12 +125,12 @@ const PriceListPricesForm = ({
           </div>
         </div>
         <div className="border-ui-border-base border-b">
-          <table className="w-full text-left">
+          <table className="w-full text-start">
             <thead>
-              <tr className="[&_th]:text-ui-fg-subtle [&_th]:txt-compact-small-plus border-ui-border-base [&_th:last-of-type]:border-r-0 [&_th]:w-1/3 [&_th]:border-r [&_th]:px-4 [&_th]:py-2.5">
+              <tr className="[&_th]:text-ui-fg-subtle [&_th]:txt-compact-small-plus border-ui-border-base [&_th:last-of-type]:border-e-0 [&_th]:w-1/3 [&_th]:border-e [&_th]:px-4 [&_th]:py-2.5">
                 <th>{t("price-list-prices-form-variant", "Variant")}</th>
                 <th>{t("price-list-prices-form-sku", "SKU")}</th>
-                <th className="text-right">
+                <th className="text-end">
                   {t("price-list-prices-form-prices", "Prices")}
                 </th>
               </tr>
@@ -208,11 +208,11 @@ const PriceListPricesForm = ({
                     return (
                       <tr
                         key={variant.id}
-                        className="[&_td]:text-ui-fg-subtle [&_td]:txt-compact-small border-ui-border-base border-b [&_td:last-of-type]:border-r-0 [&_td]:w-1/3 [&_td]:border-r [&_td]:px-4 [&_td]:py-2.5"
+                        className="[&_td]:text-ui-fg-subtle [&_td]:txt-compact-small border-ui-border-base border-b [&_td:last-of-type]:border-e-0 [&_td]:w-1/3 [&_td]:border-e [&_td]:px-4 [&_td]:py-2.5"
                       >
                         <td>{variant.title}</td>
                         <td>{variant.sku ? variant.sku : "-"}</td>
-                        <td className="text-right">
+                        <td className="text-end">
                           {t(
                             "price-list-prices-form-prices-count",
                             "{{count}} prices",

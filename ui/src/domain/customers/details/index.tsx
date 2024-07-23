@@ -109,14 +109,14 @@ const CustomerDetail = () => {
             </div>
             <Actionables actions={actions} forceDropdown />
           </div>
-          <div className="mt-6 flex space-x-6 divide-x">
+          <div className="mt-6 flex gap-x-6 divide-x rtl:divide-x-reverse ">
             <div className="flex flex-col">
               <div className="inter-smaller-regular text-grey-50 mb-1">
                 {t("details-first-seen", "First seen")}
               </div>
               <div>{moment(customer.created_at).format("DD MMM YYYY")}</div>
             </div>
-            <div className="flex flex-col pl-6">
+            <div className="flex flex-col ps-6">
               <div className="inter-smaller-regular text-grey-50 mb-1">
                 {t("details-phone", "Phone")}
               </div>
@@ -124,13 +124,13 @@ const CustomerDetail = () => {
                 {customer.phone || "N/A"}
               </div>
             </div>
-            <div className="flex flex-col pl-6">
+            <div className="flex flex-col ps-6">
               <div className="inter-smaller-regular text-grey-50 mb-1">
                 {t("details-orders", "Orders")}
               </div>
               <div>{customer.orders.length}</div>
             </div>
-            <div className="h-100 flex flex-col pl-6">
+            <div className="h-100 flex flex-col ps-6">
               <div className="inter-smaller-regular text-grey-50 mb-1">
                 {t("details-user", "User")}
               </div>

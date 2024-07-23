@@ -5,6 +5,7 @@ import { Toast } from "react-hot-toast"
 import Spinner from "../../atoms/spinner"
 import ChevronDownIcon from "../../fundamentals/icons/chevron-down"
 import RefreshIcon from "../../fundamentals/icons/refresh-icon"
+import i18n from "../../../i18n"
 
 type FormToasterContainerProps = {
   toast?: Toast
@@ -76,7 +77,7 @@ const FormToasterContainer: React.FC<FormToasterContainerProps> & {
 
 const Actions: React.FC = ({ children }) => {
   return (
-    <div className="border-grey-70 h-full border-l">
+    <div className="border-grey-70 h-full border-s">
       {Children.map(children, (child) => {
         return (
           <div className="border-grey-70 flex h-1/2 w-[72px] items-center justify-center border-b last:border-none">
@@ -130,7 +131,7 @@ const MultiActionButton: React.FC<MultiActionButtonProps> = ({
   actions,
 }) => {
   return (
-    <Dropdown.Root>
+    <Dropdown.Root dir={i18n.dir()}>
       <Dropdown.Trigger
         className={clsx(
           "inter-small-semibold flex h-full w-full items-center justify-center",
@@ -138,7 +139,7 @@ const MultiActionButton: React.FC<MultiActionButtonProps> = ({
         )}
       >
         {children}
-        <ChevronDownIcon size={16} className="ml-[2px]" />
+        <ChevronDownIcon size={16} className="ms-[2px]" />
       </Dropdown.Trigger>
 
       <Dropdown.Content
@@ -150,10 +151,10 @@ const MultiActionButton: React.FC<MultiActionButtonProps> = ({
             <Dropdown.Item key={i}>
               <button
                 onClick={action.onClick}
-                className="p-2xsmall hover:bg-grey-80 inter-small-semibold rounded-base flex w-full items-center text-left hover:outline-none"
+                className="p-2xsmall hover:bg-grey-80 inter-small-semibold rounded-base flex w-full items-center text-start hover:outline-none"
               >
                 {action.icon && (
-                  <span className="text-grey-0 mr-xsmall">
+                  <span className="text-grey-0 me-xsmall">
                     {React.cloneElement(action.icon, {
                       size: 20,
                     })}

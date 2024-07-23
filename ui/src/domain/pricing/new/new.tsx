@@ -608,10 +608,10 @@ const PriceListNew = () => {
       >
         <FocusModal.Content>
           <FocusModal.Header className="flex w-full items-center justify-start">
-            <ProgressTabs.List className="border-ui-border-base -my-2 ml-2 min-w-0 flex-1 border-l">
+            <ProgressTabs.List className="border-ui-border-base -my-2 ms-2 min-w-0 flex-1 border-l">
               <ProgressTabs.Trigger
                 value={Tab.DETAILS}
-                className="w-full min-w-0 max-w-[200px]"
+                className="w-full min-w-0 text-start max-w-[200px]"
                 status={status[Tab.DETAILS]}
               >
                 <span className="w-full overflow-hidden text-ellipsis whitespace-nowrap">
@@ -621,7 +621,7 @@ const PriceListNew = () => {
               <ProgressTabs.Trigger
                 value={Tab.PRODUCTS}
                 disabled={status[Tab.DETAILS] !== "completed"}
-                className="w-full min-w-0  max-w-[200px]"
+                className="w-full min-w-0 text-start  max-w-[200px]"
                 status={status[Tab.PRODUCTS]}
               >
                 <span className="w-full overflow-hidden text-ellipsis whitespace-nowrap">
@@ -634,7 +634,7 @@ const PriceListNew = () => {
                   status[Tab.DETAILS] !== "completed" ||
                   status[Tab.PRODUCTS] !== "completed"
                 }
-                className="w-full min-w-0 max-w-[200px]"
+                className="w-full min-w-0 text-start max-w-[200px]"
                 status={status[Tab.PRICES]}
               >
                 <span className="w-full overflow-hidden text-ellipsis whitespace-nowrap">
@@ -645,7 +645,7 @@ const PriceListNew = () => {
                 <ProgressTabs.Trigger
                   value={Tab.EDIT}
                   disabled={isLoading || isError}
-                  className="w-full min-w-0 max-w-[200px]"
+                  className="w-full min-w-0 text-start max-w-[200px]"
                   status={isEditDirty ? "in-progress" : "not-started"}
                 >
                   <span className="w-full overflow-hidden text-ellipsis whitespace-nowrap">
@@ -654,7 +654,7 @@ const PriceListNew = () => {
                 </ProgressTabs.Trigger>
               )}
             </ProgressTabs.List>
-            <div className="ml-auto flex items-center justify-end gap-x-2">
+            <div className="ms-auto flex items-center justify-end gap-x-2">
               <Button
                 variant="secondary"
                 onClick={onBack}

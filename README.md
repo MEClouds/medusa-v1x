@@ -34,4 +34,3 @@ npm run dev
 
 Main Modifications
 The main modification of this project is found in the versions of the package.json dependencies, which have been updated and adjusted manually to ensure correct cohesion and compatibility.
-

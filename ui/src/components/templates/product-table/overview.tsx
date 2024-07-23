@@ -22,7 +22,7 @@ const ProductOverview = ({
 }: ProductOverviewProps) => {
   return (
     <>
-      <div className="border-grey-20 pr-xlarge flex justify-end border-t border-b py-2.5">
+      <div className="border-grey-20 pe-xlarge flex justify-end border-b border-t py-2.5">
         <div className="inter-small-semibold text-grey-50 flex justify-self-end">
           <span
             onClick={toggleListView}
@@ -42,9 +42,7 @@ const ProductOverview = ({
         </div>
       </div>
       <div className="grid grid-cols-6">
-        {products?.map((product) => (
-          <ProductTile product={product} />
-        ))}
+        {products?.map((product) => <ProductTile product={product} />)}
       </div>
     </>
   )
@@ -56,9 +54,7 @@ const ProductTile = ({ product }) => {
   return (
     <div className="p-base rounded-rounded hover:bg-grey-5 group flex-col">
       <div className="relative">
-        <div
-          className={clsx("rounded-base absolute top-2 right-2 inline-block")}
-        >
+        <div className={clsx("rounded-base absolute end-2 top-2 inline-block")}>
           <Actionables
             actions={getActions()}
             customTrigger={
@@ -85,7 +81,7 @@ const ProductTile = ({ product }) => {
           )}
           <div>
             <div className="mt-base flex items-center justify-between">
-              <p className="inter-small-regular text-grey-90 line-clamp-1 mr-3">
+              <p className="inter-small-regular text-grey-90 me-3 line-clamp-1">
                 {product.title}
               </p>
               <StatusIndicator

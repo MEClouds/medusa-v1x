@@ -1,13 +1,13 @@
-import type { Configuration } from "webpack";
+import type { Configuration } from "webpack"
 
 type WebSocketURL = {
-  hostname?: string | undefined;
-  password?: string | undefined;
-  pathname?: string | undefined;
-  port?: string | number | undefined;
-  protocol?: string | undefined;
-  username?: string | undefined;
-};
+  hostname?: string | undefined
+  password?: string | undefined
+  pathname?: string | undefined
+  port?: string | number | undefined
+  protocol?: string | undefined
+  username?: string | undefined
+}
 
 export type DevelopOptions = {
   /**
@@ -16,38 +16,38 @@ export type DevelopOptions = {
    *
    * @default true
    */
-  open?: boolean;
+  open?: boolean
   /**
    * The host the development server should run on.
    *
    * @default "localhost"
    */
-  host?: string;
+  host?: string
   /**
    * The port the development server should run on.
    * @default 7002
    * */
-  port?: number;
+  port?: number
   /**
    * Determines the log level of the development server.
    * @default "error"
    */
-  logLevel?: "error" | "none" | "warn" | "info" | "log" | "verbose";
+  logLevel?: "error" | "none" | "warn" | "info" | "log" | "verbose"
   /**
    * Determines the verbosity of the development server.
    * @default "normal"
    */
-  stats?: "normal" | "debug";
+  stats?: "normal" | "debug"
   /**
    * The development server allowed hosts.
    * @default "auto"
    */
-  allowedHosts?: "auto" | "all" | string[];
+  allowedHosts?: "auto" | "all" | string[]
   /**
    * Specifying URL to web socket server
    */
-  webSocketURL?: string | WebSocketURL | undefined;
-};
+  webSocketURL?: string | WebSocketURL | undefined
+}
 
 export type AdminOptions = {
   /**
@@ -55,51 +55,51 @@ export type AdminOptions = {
    *
    * This option will only be used if `serve` is `false`.
    */
-  backend?: string;
+  backend?: string
   /**
    * The path to the admin dashboard. The path must be in the format of `/<path>`.
    * The chosen path cannot be one of the reserved paths: "admin", "store".
    * @default "/app"
    */
-  path?: string;
+  path?: string
   /**
    * The directory to output the build to. By default the plugin will build
    * the dashboard to the `build` directory in the root folder.
    * @default undefined
    */
-  outDir?: string;
+  outDir?: string
   /**
    * Options for the development server.
    */
-  develop?: DevelopOptions;
-};
+  develop?: DevelopOptions
+}
 
-type BuildReporting = "minimal" | "fancy";
+type BuildReporting = "minimal" | "fancy"
 
 export type WebpackConfigArgs = {
-  entry: string;
-  dest: string;
-  cacheDir: string;
-  env: "development" | "production";
-  options?: AdminOptions;
-  template?: string;
-  publicFolder?: string;
-  reporting?: BuildReporting;
-};
+  entry: string
+  dest: string
+  cacheDir: string
+  env: "development" | "production"
+  options?: AdminOptions
+  template?: string
+  publicFolder?: string
+  reporting?: BuildReporting
+}
 
 export type CustomWebpackConfigArgs = WebpackConfigArgs & {
-  devServer?: Configuration["devServer"];
-};
+  devServer?: Configuration["devServer"]
+}
 
 type BaseArgs = {
-  appDir: string;
-  buildDir: string;
-  plugins?: string[];
-  options?: AdminOptions;
-};
+  appDir: string
+  buildDir: string
+  plugins?: string[]
+  options?: AdminOptions
+}
 
 export type BuildArgs = BaseArgs & {
-  reporting?: BuildReporting;
-};
+  reporting?: BuildReporting
+}
 
-export type DevelopArgs = BaseArgs;
+export type DevelopArgs = BaseArgs

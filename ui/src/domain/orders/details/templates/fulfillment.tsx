@@ -164,7 +164,7 @@ export const FormattedFulfillment = ({
                 : t("templates-shipping-from", "Shipping from")}{" "}
             </div>
             <div className="flex items-center pt-2">
-              <IconBadge className="mr-2">
+              <IconBadge className="me-2">
                 <BuildingsIcon />
               </IconBadge>
               {getLocationNameById(fulfillment.location_id)}
@@ -173,7 +173,7 @@ export const FormattedFulfillment = ({
         )}
       </div>
       {!fulfillment.canceled_at && !fulfillment.shipped_at && (
-        <div className="flex items-center space-x-2">
+        <div className="flex items-center gap-x-2">
           <Actionables
             actions={[
               {

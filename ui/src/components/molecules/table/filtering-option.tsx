@@ -3,6 +3,7 @@ import clsx from "clsx"
 import React, { useState } from "react"
 import CheckIcon from "../../fundamentals/icons/check-icon"
 import ChevronDownIcon from "../../fundamentals/icons/chevron-down"
+import i18n from "../../../i18n"
 
 export type FilteringOptionProps = {
   title: string
@@ -24,17 +25,17 @@ const FilteringOptions: React.FC<FilteringOptionProps> = ({
   return (
     <div
       className={clsx(
-        "inter-small-regular text-grey-50 mr-6 flex last:mr-0",
+        "inter-small-regular text-grey-50 me-6 flex last:me-0",
         className
       )}
       {...props}
     >
       <span className="">{title}:</span>
-      <DropdownMenu.Root onOpenChange={setOpen}>
+      <DropdownMenu.Root dir={i18n.dir()} onOpenChange={setOpen}>
         <DropdownMenu.Trigger
           asChild
           className={clsx(
-            "inter-small-regular text-grey-50 active:bg-grey-5 hover:bg-grey-5 flex items-center rounded pl-1.5 pr-0.5",
+            "inter-small-regular text-grey-50 active:bg-grey-5 hover:bg-grey-5 flex items-center rounded pe-0.5 ps-1.5",
             { "bg-grey-5": open }
           )}
         >
@@ -58,7 +59,7 @@ const FilteringOptions: React.FC<FilteringOptionProps> = ({
               }}
               disabled={typeof opt.count !== "undefined" && opt.count < 1}
               className={clsx(
-                "text-grey-90 inter-small-semibold my-1 flex w-48 items-center rounded py-1.5  px-3 hover:border-0 hover:outline-none",
+                "text-grey-90 inter-small-semibold my-1 flex w-48 items-center rounded px-3  py-1.5 hover:border-0 hover:outline-none",
                 {
                   "hover:bg-grey-10 cursor-pointer":
                     typeof opt.count === "undefined" || opt.count > 0,
@@ -71,14 +72,14 @@ const FilteringOptions: React.FC<FilteringOptionProps> = ({
                 </span>
               )}
               <div
-                className={clsx("ml-3 flex w-full justify-between", {
-                  "ml-7": selected !== opt.title,
+                className={clsx("ms-3 flex w-full justify-between", {
+                  "ms-7": selected !== opt.title,
                   "text-grey-30": (opt.count || 0) < 1,
                 })}
               >
                 {opt.title}
                 <span
-                  className={clsx("inter-small-regular text-grey-40 ml-3", {
+                  className={clsx("inter-small-regular text-grey-40 ms-3", {
                     "text-grey-30": (opt.count || 0) < 1,
                   })}
                 >

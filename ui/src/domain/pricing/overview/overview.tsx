@@ -50,6 +50,7 @@ import {
 } from "../../../utils/search-param-utils"
 import { PriceListStatus } from "../forms/price-list-details-form"
 import { PriceListNew } from "../new"
+import i18n from "../../../i18n"
 
 const PAGE_SIZE = 10
 const TABLE_HEIGHT = (PAGE_SIZE + 1) * 48
@@ -215,7 +216,7 @@ const PriceListOverview = () => {
           )
         })}
         <Container className="overflow-hidden p-0">
-          <div className="flex items-center justify-between px-8 pt-6 pb-4">
+          <div className="flex items-center justify-between px-8 pb-4 pt-6">
             <Heading>Price Lists</Heading>
             <div className="flex items-center gap-x-2">
               <PriceListTableFilters />
@@ -242,11 +243,14 @@ const PriceListOverview = () => {
                   return (
                     <Table.Row
                       key={headerGroup.id}
-                      className="[&_th]:w-1/5 [&_th:last-of-type]:w-[1%]"
+                      className="[&_th:last-of-type]:w-[1%] [&_th]:w-1/5"
                     >
                       {headerGroup.headers.map((header) => {
                         return (
-                          <Table.HeaderCell key={header.id}>
+                          <Table.HeaderCell
+                            key={header.id}
+                            className="text-start"
+                          >
                             {flexRender(
                               header.column.columnDef.header,
                               header.getContext()
@@ -268,7 +272,7 @@ const PriceListOverview = () => {
                     }}
                   >
                     {row.getVisibleCells().map((cell) => (
-                      <Table.Cell key={cell.id}>
+                      <Table.Cell key={cell.id} className="text-start pe-6">
                         {flexRender(
                           cell.column.columnDef.cell,
                           cell.getContext()
@@ -339,18 +343,18 @@ const columns = [
       const color = isExpired
         ? "red"
         : isDraft
-        ? "grey"
-        : isScheduled
-        ? "orange"
-        : "green"
+          ? "grey"
+          : isScheduled
+            ? "orange"
+            : "green"
 
       const text = isExpired
         ? "Expired"
         : isDraft
-        ? "Draft"
-        : isScheduled
-        ? "Scheduled"
-        : "Active"
+          ? "Draft"
+          : isScheduled
+            ? "Scheduled"
+            : "Active"
 
       return (
         <StatusBadge color={color}>
@@ -447,9 +451,8 @@ const PriceListTableRowActions = ({ row }: PriceListTableRowActionsProps) => {
     : false
 
   const isActive = row.original.status === "active"
-
   return (
-    <DropdownMenu>
+    <DropdownMenu dir={i18n.dir()}>
       <DropdownMenu.Trigger asChild>
         <IconButton variant="transparent">
           <EllipsisHorizontal className="text-ui-fg-subtle" />
@@ -458,12 +461,12 @@ const PriceListTableRowActions = ({ row }: PriceListTableRowActionsProps) => {
       <DropdownMenu.Content>
         <DropdownMenu.Item onClick={handleNavigate}>
           <PencilSquare className="text-ui-fg-subtle" />
-          <span className="ml-2">Edit</span>
+          <span className="ms-2">Edit</span>
         </DropdownMenu.Item>
         {!isExpired && (
           <DropdownMenu.Item onClick={toggleStatus}>
             {isActive ? <EllipseGreySolid /> : <EllipseGreenSolid />}
-            <span className="ml-2">
+            <span className="ms-2">
               {isActive ? "Mark as draft" : "Mark as active"}
             </span>
           </DropdownMenu.Item>
@@ -471,7 +474,7 @@ const PriceListTableRowActions = ({ row }: PriceListTableRowActionsProps) => {
         <DropdownMenu.Separator />
         <DropdownMenu.Item onClick={handleDelete}>
           <Trash className="text-ui-fg-subtle" />
-          <span className="ml-2">Delete</span>
+          <span className="ms-2">Delete</span>
         </DropdownMenu.Item>
       </DropdownMenu.Content>
     </DropdownMenu>
